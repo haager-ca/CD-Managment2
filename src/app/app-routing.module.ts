@@ -9,8 +9,12 @@ const routes: Routes = [
     component: ListCDsComponent,
   },
   {
-    path: "",
+    path: "home",
     component: HomeComponent,
+  },
+  {
+    path: "**",
+    redirectTo: "/home",
   }
 ];
 
