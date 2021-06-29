@@ -1,1 +1,19 @@
-<p>home works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <ul>
+                <li *ngFor="let cd of cds">{{ cd }}</li>
+            </ul>
+        </div>
+        <div class="col-6">
+
+            <input class="form-control" placeholder="Neue CD erstellen" [(ngModel)]="newCdTitle">
+
+            <button class="mt-1 mx-auto d-block btn btn-outline-success" (click)="addNewCD()">CD hinzufügen</button>
+
+            <div class="mt-3 alert alert-primary" *ngIf="newCdTitle != ''">
+                Wenn sie auf den Butten klicken, wird eine CD namens {{ newCdTitle }} erstellt.
+            </div>
+        </div>
+    </div>
+</div>
