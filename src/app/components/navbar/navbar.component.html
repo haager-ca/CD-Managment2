@@ -1,11 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">CD-Verwaltung</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" [class.show]="!navbarCollapsed">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link" routerLink="/home">Startseite</a>
