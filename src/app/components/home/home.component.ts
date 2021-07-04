@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
   public cdTitle: string = "Die drei ???1";
   public showAlert: boolean = true;
   public newCdTitle: string = "";
+  public readonly maxTitleLength: number = 20;
   public cds: string[] = [
     "Die drei ??? Teil 1",
     "Die drei ??? Teil 2",
@@ -33,7 +34,6 @@ export class HomeComponent implements OnInit {
     this.cds.push(this.newCdTitle);
     this.newCdTitle = "";
   }
-
 
 }
 

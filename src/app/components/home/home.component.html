@@ -6,13 +6,18 @@
             </ul>
         </div>
         <div class="col-6">
-
             <input class="form-control" placeholder="Neue CD erstellen" [(ngModel)]="newCdTitle">
 
-            <button class="mt-1 mx-auto d-block btn btn-outline-success" (click)="addNewCD()">CD hinzufügen</button>
+            <button class="mx-auto d-block mt-2 btn btn-outline-success" [disabled]="newCdTitle.length > maxTitleLength"
+                (click)="addNewCD()">CD hinzufügen</button>
 
-            <div class="mt-3 alert alert-primary" *ngIf="newCdTitle != ''">
-                Wenn sie auf den Butten klicken, wird eine CD namens {{ newCdTitle }} erstellt.
+            <div [class]="'alert alert-' + (newCdTitle.length <= maxTitleLength ? 'primary' : 'warning')"
+                *ngIf="newCdTitle != ''">
+                <span *ngIf="newCdTitle.length <= maxTitleLength">Wenn sie auf den Butten klicken, wird eine CD namens
+                    <i>{{ newCdTitle }}</i> erstellt.</span>
+                <span *ngIf="newCdTitle.length > maxTitleLength">Der Titel ist mit {{ newCdTitle.length }} Zeichen {{
+                    newCdTitle.length >= maxTitleLength * 2 ? 'viel ' : ''}} zu lang{{ newCdTitle.length >=
+                    maxTitleLength * 3 ? ', du Depp ' : '' }}!</span>
             </div>
         </div>
     </div>
