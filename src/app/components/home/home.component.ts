@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-home',
@@ -7,22 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  constructor(private storageService: StorageService) { }
+
   public cdTitle: string = "Die drei ???1";
   public showAlert: boolean = true;
   public newCdTitle: string = "";
   public readonly maxTitleLength: number = 20;
-  public cds: string[] = [
-    "Die drei ??? Teil 1",
-    "Die drei ??? Teil 2",
-    "Die drei ??? Teil 3",
-    "Die drei ??? Teil 4",
-    "Die drei ??? Teil 5",
-    "Die drei ??? Teil 6"
-  ];
+  public cds: string[] = [];
 
-  constructor() { }
 
   ngOnInit(): void {
+    this.cds = this.storageService.getCDs();
   }
 
   public transformCdTitle(title: string): string {
@@ -32,6 +28,7 @@ export class HomeComponent implements OnInit {
   public addNewCD() {
     // this.showAlert = !this.showAlert;
     this.cds.push(this.newCdTitle);
+    this.storageService.setCDs(this.cds);
     this.newCdTitle = "";
   }
 
