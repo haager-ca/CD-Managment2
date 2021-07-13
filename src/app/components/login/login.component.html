@@ -1,0 +1,28 @@
+<div class="card p-3">
+    <div class="row">
+        <div class="col-5 mx-auto">
+            <h1 class="mb-2">Login</h1>
+            <div class="alert alert-danger" *ngIf="formInValid">
+                Das Formular ist ungültig, bitte überprüfen sie ihre Eingaben nochmals!
+            </div>
+            <div class="alert alert-danger" *ngIf="usernameOrPasswordWrong">
+                Ihr Benutzername oder Passwort ist falsch!
+            </div>
+            <!--<form>-->
+            <div class="form-group">
+                <label for="inputUsername" class="mt-2 form-label">Benutzername</label>
+                <input type="text" class="form-control" id="inputUsername" [(ngModel)]="username"
+                    placeholder="Benutzername eingeben">
+                <small class="form-text text-muted">Wir werden ihre Daten nur an Google, Apple und Microsoft
+                    verkaufen</small>
+            </div>
+            <div class="mb-3">
+                <label for="inputPassword" class="mt-3 form-label">Passwort</label>
+                <input type="password" class="form-control" id="inputPassword" [(ngModel)]="password"
+                    placeholder="Passwort eingeben">
+            </div>
+            <button class="btn btn-primary" (click)="login()">Anmelden</button>
+            <!--</form>-->
+        </div>
+    </div>
+</div>

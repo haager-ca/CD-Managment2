@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class StorageService {
 
   constructor() {
-    this.cds = JSON.parse(localStorage.getItem("cds"));
+    this.cds = JSON.parse(localStorage.getItem("cds") || "[]");
     if (!this.cds) {
       this.cds = [];
     }
